@@ -8,7 +8,7 @@
     <template v-for="(item, i) in imgs">
       <transition name="slide-fade" :key="i">
         <div class="container" v-show="page === i">
-          <img :src="item" />
+          <img :src="item" alt="加载中……(#^.^#)" />
           <div class="startBtn" @click="page++" v-show="page === 0"></div>
           <div class="answerA" @click="choose(2)" v-show="page > 0"></div>
           <div class="answerB" @click="choose(0)" v-show="page > 0"></div>
@@ -17,7 +17,10 @@
       </transition>
     </template>
     <div class="container" v-show="page === 16">
-      <img :src="require('./assets/' + result + '.png')" />
+      <img
+        :src="require('./assets/' + result + '.png')"
+        alt="加载中……(#^.^#)"
+      />
     </div>
     <my-music />
   </div>
@@ -49,22 +52,22 @@ export default {
       answers: [],
       obj: {},
       imgs: [
-        require("./assets/q0.png"),
-        require("./assets/q1.png"),
-        require("./assets/q2.png"),
-        require("./assets/q3.png"),
-        require("./assets/q4.png"),
-        require("./assets/q5.png"),
-        require("./assets/q6.png"),
-        require("./assets/q7.png"),
-        require("./assets/q8.png"),
-        require("./assets/q9.png"),
-        require("./assets/q10.png"),
-        require("./assets/q11.png"),
-        require("./assets/q12.png"),
-        require("./assets/q13.png"),
-        require("./assets/q14.png"),
-        require("./assets/q15.png"),
+        require("./assets/q0_min.png"),
+        require("./assets/q1_min.png"),
+        require("./assets/q2_min.png"),
+        require("./assets/q3_min.png"),
+        require("./assets/q4_min.png"),
+        require("./assets/q5_min.png"),
+        require("./assets/q6_min.png"),
+        require("./assets/q7_min.png"),
+        require("./assets/q8_min.png"),
+        require("./assets/q9_min.png"),
+        require("./assets/q10_min.png"),
+        require("./assets/q11_min.png"),
+        require("./assets/q12_min.png"),
+        require("./assets/q13_min.png"),
+        require("./assets/q14_min.png"),
+        require("./assets/q15_min.png"),
       ],
     };
   },
@@ -99,9 +102,22 @@ export default {
     getResult() {
       let calc = [0],
         count = 0,
-        chars = ["B", "C", "A"];
+        chars = ["B", "C", "A"],
+        now = new Date();
       calc[1] = this.answers[0];
       this.obj["Question_1"] = chars[this.answers[0]];
+      this.obj["eventParams"] =
+        now.getFullYear() +
+        "年" +
+        (now.getMonth() + 1) +
+        "月" +
+        now.getDate() +
+        "日 " +
+        now.getHours() +
+        ":" +
+        now.getMinutes() +
+        ":" +
+        now.getSeconds();
       if (this.answers[0] === 0) count++;
       for (let i = 1; i < this.answers.length; i++) {
         this.obj["Question_" + (i + 1)] = chars[this.answers[i]];
