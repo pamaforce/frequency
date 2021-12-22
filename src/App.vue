@@ -94,7 +94,9 @@ export default {
           action: "aplus.record",
           arguments: ["get_result", "EXP", this.obj],
         });
-        this.page++;
+        setTimeout(() => {
+          this.page++;
+        }, 0);
       } else {
         this.page++;
       }
@@ -118,10 +120,10 @@ export default {
         now.getMinutes() +
         ":" +
         now.getSeconds();
-      if (this.answers[0] === 0) count++;
+      if (this.answers[0] === 1) count++;
       for (let i = 1; i < this.answers.length; i++) {
         this.obj["Question_" + (i + 1)] = chars[this.answers[i]];
-        if (this.answers[i] === 0) count++;
+        if (this.answers[i] === 1) count++;
         calc[i + 1] = this.answers[i] + calc[i];
       }
       if (calc[15] > 25) return "1895Hz";
@@ -166,6 +168,8 @@ export default {
 .loading-class {
   height: 100vh;
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 .content-class {
   width: 300px;
@@ -177,7 +181,9 @@ export default {
 .container {
   height: 100vh;
   width: 100vw;
+  max-width: 400px;
   position: relative;
+  margin: 0 auto;
 }
 .container img {
   position: absolute;
