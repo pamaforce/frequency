@@ -168,7 +168,7 @@ export default {
 .loading-class {
   height: 100vh;
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   margin: 0 auto;
 }
 .content-class {
@@ -181,7 +181,7 @@ export default {
 .container {
   height: 100vh;
   width: 100vw;
-  max-width: 400px;
+  max-width: 450px;
   position: relative;
   margin: 0 auto;
 }
