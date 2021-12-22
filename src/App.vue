@@ -95,7 +95,7 @@ export default {
           arguments: ["get_result", "EXP", this.obj],
         });
         setTimeout(() => {
-          this.page++;
+          this.page = 16;
         }, 0);
       } else {
         this.page++;
