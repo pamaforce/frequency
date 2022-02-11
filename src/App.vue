@@ -9,7 +9,7 @@
       <transition name="slide-fade" :key="i">
         <div class="container" v-show="page === i">
           <img :src="item" alt="加载中……(#^.^#)" />
-          <div class="startBtn" @click="page++" v-show="page === 0"></div>
+          <div class="startBtn" @click="page = 1" v-show="page === 0"></div>
           <div class="answerA" @click="choose(2)" v-show="page > 0"></div>
           <div class="answerB" @click="choose(0)" v-show="page > 0"></div>
           <div class="answerC" @click="choose(1)" v-show="page > 0"></div>
